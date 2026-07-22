@@ -1,6 +1,6 @@
 # Infinite Monkey Theorem Simulation
 
-A graphical simulation of the Infinite Monkey Theorem built with Python and Tkinter. Test the probability of random key presses generating specific English words or custom target strings in real-time.
+A simulation of the Infinite Monkey Theorem built with Python and Tkinter. Test the probability of random key presses generating specific English words.
 
 ## About the Theorem
 
