@@ -14,21 +14,20 @@ The Infinite Monkey Theorem states that a monkey hitting keys at random on a typ
 ```bash
 sudo apt-get install python3-tk
 ```
-
 ## Installation & Running
 
-1. Clone the repository:
+1. Download the project source code as a ZIP file and extract (unzip) it.
 
-```bash
-git clone https://github.com/jayw-88/Infinite-Monkey-Theorem-Simulation.git
-cd Infinite-Monkey-Theorem-Simulation
-```
+2. Open your terminal or command prompt inside the extracted project folder.
 
-2. Run the application:
+3. Run the application:
 
 ```bash
 python InfiniteMonkeyTheorem.py
 ```
+
+*(Note: On some macOS and Linux systems, you may need to use `python3 InfiniteMonkeyTheorem.py` if `python` points to Python 2).*
+
 
 ## License
 
