@@ -4,7 +4,7 @@ A simulation of the Infinite Monkey Theorem built with Python and Tkinter. Test 
 
 ## About the Theorem
 
-The Infinite Monkey Theorem states that a monkey hitting keys at random on a typewriter keyboard for an infinite amount of time will almost surely type any given text—including the complete works of William Shakespeare. Given infinite time and iterations, even the most unlikely event is inevitable).
+The Infinite Monkey Theorem states that a monkey hitting keys at random on a typewriter keyboard for an infinite amount of time will almost surely type any given text—including the complete works of William Shakespeare. Given infinite time and iterations, even the most unlikely event is inevitable.
 
 ## Prerequisites
 
