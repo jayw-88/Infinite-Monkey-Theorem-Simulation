@@ -7,23 +7,25 @@ import tkinter as tk
 from tkinter import ttk
 
 # Initialization
+ascii_lets = string.ascii_letters
+alphabet = ascii_lets[:-26]
+length = 0
+words = []
+
+# File Pathing
 SCRIPT_DIR = Path(__file__).parent.resolve()
 monkey_path = SCRIPT_DIR / 'Monkey.png'
 
 SCRIPT_DIR = Path(__file__).parent.resolve()
 file_path = SCRIPT_DIR / 'words_alpha.txt'
 
-ascii_lets = string.ascii_letters
-alphabet = ascii_lets[:-26]
-length = 0
-words = []
-
-# Functions
+# Global Functions
 def masterfont(x):
     return ("Helvetica Neue", x)
 
 # Classes
 class App(tk.Tk):
+    
     def __init__(self):
         super().__init__()
         self.title("Infinite Monkey Theorem")
@@ -111,6 +113,7 @@ class App(tk.Tk):
         frame.tkraise()
 
 class StartPage(tk.Frame):
+    
     def __init__(self, parent, controller):
         super().__init__(parent)
         
@@ -155,8 +158,8 @@ class SimulationPage(tk.Frame):
         
         # Labels
         title = tk.Label(self, 
-                               text = "Simulation Variables",
-                               font = masterfont(36))
+                        text = "Simulation Variables",
+                        font = masterfont(36))
         word_length_label = tk.Label(self,
                                      text = "Word Length",
                                      font = masterfont(30))
@@ -164,8 +167,8 @@ class SimulationPage(tk.Frame):
                                      text = "Custom Word",
                                      font = masterfont(30))
         self.found_label = tk.Label(self,
-                            text = "",
-                            font = masterfont(24))
+                                    text = "",
+                                    font = masterfont(24))
         
         # Buttons
         self.start_simulation_button = ttk.Button(self,
@@ -232,81 +235,81 @@ class SimulationPage(tk.Frame):
         exit_button.place(x = 320, y = 0)
     
     def info_popup_count(self):
-            self.no_input = tk.Frame(self,
-                                            bg = "#333333", 
-                                            bd = 2, 
-                                            relief = "solid", 
-                                            width = 365, 
-                                            height = 150)
-            
-            # Labels & Buttons
-            info_label = tk.Label(self.no_input,
-                                        text = "Changes the length of the word the simulation is searching for. The longer the length, the more time it will take for the simulation to find it.",
-                                        font = masterfont(20),
-                                        wraplength = 300,
-                                        justify = "left")
-            exit_button = ttk.Button(self.no_input,
-                                        text = "X",
-                                        command = lambda: self.no_input.destroy(),
-                                        style = "Exit.TButton")
-    
-            # Placing
-            self.no_input.place(x = 475, y = 350)
-            info_label.place(x = 20, y = 10)
-            exit_button.place(x = 320, y = 0)
+        self.no_input = tk.Frame(self,
+                                        bg = "#333333", 
+                                        bd = 2, 
+                                        relief = "solid", 
+                                        width = 365, 
+                                        height = 150)
+        
+        # Labels & Buttons
+        info_label = tk.Label(self.no_input,
+                                    text = "Changes the length of the word the simulation is searching for. The longer the length, the more time it will take for the simulation to find it.",
+                                    font = masterfont(20),
+                                    wraplength = 300,
+                                    justify = "left")
+        exit_button = ttk.Button(self.no_input,
+                                    text = "X",
+                                    command = lambda: self.no_input.destroy(),
+                                    style = "Exit.TButton")
+
+        # Placing
+        self.no_input.place(x = 475, y = 350)
+        info_label.place(x = 20, y = 10)
+        exit_button.place(x = 320, y = 0)
             
     def info_popup_custom(self):
-                self.no_input = tk.Frame(self,
-                                                bg = "#333333", 
-                                                bd = 2, 
-                                                relief = "solid", 
-                                                width = 365, 
-                                                height = 150)
-                
-                # Labels & Buttons
-                info_label = tk.Label(self.no_input,
-                                            text = "Sets a custom word for the simulation to find. Again, keep in mind the longer the length of the custom word, the more time it will take to find it.",
-                                            font = masterfont(20),
-                                            wraplength = 300,
-                                            justify = "left")
-                exit_button = ttk.Button(self.no_input,
-                                            text = "X",
-                                            command = lambda: self.no_input.destroy(),
-                                            style = "Exit.TButton")
+        self.no_input = tk.Frame(self,
+                                        bg = "#333333", 
+                                        bd = 2, 
+                                        relief = "solid", 
+                                        width = 365, 
+                                        height = 150)
         
-                # Placing
-                self.no_input.place(x = 475, y = 350)
-                info_label.place(x = 20, y = 10)
-                exit_button.place(x = 320, y = 0)
+        # Labels & Buttons
+        info_label = tk.Label(self.no_input,
+                                    text = "Sets a custom word for the simulation to find. Again, keep in mind the longer the length of the custom word, the more time it will take to find it.",
+                                    font = masterfont(20),
+                                    wraplength = 300,
+                                    justify = "left")
+        exit_button = ttk.Button(self.no_input,
+                                    text = "X",
+                                    command = lambda: self.no_input.destroy(),
+                                    style = "Exit.TButton")
+
+        # Placing
+        self.no_input.place(x = 475, y = 350)
+        info_label.place(x = 20, y = 10)
+        exit_button.place(x = 320, y = 0)
                 
     def info_popup_monkey(self):
-                    self.no_input = tk.Frame(self,
-                                                    bg = "#333333", 
-                                                    bd = 2, 
-                                                    relief = "solid", 
-                                                    width = 365, 
-                                                    height = 210)
-                    
-                    # Variables
-                    probability = (1/26)**self.length
-                    formatted_percent = f"{probability * 100:.8f}%"
-                    
-                    # Labels & Buttons
-                    
-                    info_label = tk.Label(self.no_input,
-                                        text = f"Assuming the monkey has the average human lpm (letters per minute) speed of 200, it took {self.typed/200} minutes for the monkey to type the word '{self.found_word}'. The probablity of the monkey typing this exact word is {formatted_percent}",
-                                        font = masterfont(20),
-                                        wraplength = 300,
-                                        justify = "left")
-                    exit_button = ttk.Button(self.no_input,
-                                                text = "X",
-                                                command = lambda: self.no_input.destroy(),
-                                                style = "Exit.TButton")
-            
-                    # Placing
-                    self.no_input.place(x = 475, y = 400)
-                    info_label.place(x = 20, y = 10)
-                    exit_button.place(x = 320, y = 0)
+        self.no_input = tk.Frame(self,
+                                        bg = "#333333", 
+                                        bd = 2, 
+                                        relief = "solid", 
+                                        width = 365, 
+                                        height = 210)
+        
+        # Variables
+        probability = (1/26)**self.length
+        formatted_percent = f"{probability * 100:.8f}%"
+        
+        # Labels & Buttons
+        
+        info_label = tk.Label(self.no_input,
+                            text = f"Assuming the monkey has the average human lpm (letters per minute) speed of 200, it took {self.typed/200} minutes for the monkey to type the word '{self.found_word}'. The probablity of the monkey typing this exact word is {formatted_percent}",
+                            font = masterfont(20),
+                            wraplength = 300,
+                            justify = "left")
+        exit_button = ttk.Button(self.no_input,
+                                    text = "X",
+                                    command = lambda: self.no_input.destroy(),
+                                    style = "Exit.TButton")
+
+        # Placing
+        self.no_input.place(x = 475, y = 400)
+        info_label.place(x = 20, y = 10)
+        exit_button.place(x = 320, y = 0)
         
     def start_simulation(self):
         words.clear()
@@ -353,6 +356,7 @@ class SimulationPage(tk.Frame):
                 target = self.run_monkey_simulation, daemon=True
         )
         thread.start()
+        
     def run_monkey_simulation(self):
         found = False
         inf_string = ""
